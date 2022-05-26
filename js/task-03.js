@@ -1,4 +1,4 @@
-// Напиши скрипт для создания галереи изображений по массиву данных. 
+// Напиши скрипт для создания галереи изображений по массиву данных.
 // В HTML есть список ul.gallery.
 
 // <ul class="gallery"></ul>
@@ -8,38 +8,31 @@
 // Все элементы галереи должны добавляться в DOM за одну операцию вставки.
 // Добавь минимальное оформление галереи флексбоксами или гридами через CSS классы.
 
-
-
-
 const images = [
   {
-    url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    alt: 'White and Black Long Fur Cat',
+    url: "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    alt: "White and Black Long Fur Cat",
   },
   {
-    url: 'https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    alt: 'Orange and White Koi Fish Near Yellow Koi Fish',
+    url: "https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    alt: "Orange and White Koi Fish Near Yellow Koi Fish",
   },
   {
-    url: 'https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    alt: 'Group of Horses Running',
+    url: "https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    alt: "Group of Horses Running",
   },
 ];
 
-
-
 const arrEl = document.querySelector(".gallery");
 console.log(arrEl);
- const itemEl = document.createElement("li");
-const imgEl = document.createElement("img");
- arrEl.appendChild(itemEl);
-console.log(imgEl);
 
-// images.forEach((item) => {
-//   const itemEl = document.createElement("li");
-//   const imgEl = document.createElement("img");
-//   itemEl.appendChild(imgEl);
+images.map((item) => {
+  const itemEl = document.createElement("li");
+  itemEl.classList.add('gallery__list')
 
-//   arrEl.appendChild(itemEl);
-//   arrEl.appendChild(itemEl).textContent = item;
-// });
+  arrEl.appendChild(itemEl);
+  const newArr = itemEl.insertAdjacentHTML(
+    "beforeend",
+    `<img src = ${item.url} alt = ${item.alt} width = 320 class = gallery__img>`
+  );
+});
