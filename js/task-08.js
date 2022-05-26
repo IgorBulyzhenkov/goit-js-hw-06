@@ -16,11 +16,6 @@ function onFormSubmit(event) {
   console.log(formData);
   eventTarget.reset();
 }
-
-function valueForms(event) {
-  
-
-  
-}
+ console.dir(form);
 
 form.addEventListener("submit", onFormSubmit);
