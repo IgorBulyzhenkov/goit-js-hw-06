@@ -26,13 +26,8 @@ const images = [
 const arrEl = document.querySelector(".gallery");
 console.log(arrEl);
 
-images.map((item) => {
-  const itemEl = document.createElement("li");
-  itemEl.classList.add('gallery__list')
-
-  arrEl.appendChild(itemEl);
-  const newArr = itemEl.insertAdjacentHTML(
-    "beforeend",
-    `<img src = ${item.url} alt = ${item.alt} width = 320 class = gallery__img>`
-  );
+const array = images.map((item) => {
+  return `<li class = "gallery__list"><img src = ${item.url} alt = ${item.alt} width = 320 class = gallery__img></li>`;
 });
+
+ arrEl.insertAdjacentHTML("beforeend", array.join(''));
